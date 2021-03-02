@@ -1,0 +1,34 @@
+
+.progress-bar {
+   background: #E3E3E3;
+   border-radius: 8px;
+   display: block;
+   height: 16px;
+   margin: 40px auto;
+   position: relative;
+   width: 600px;
+}
+
+.progress-bar:before {
+   background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
+   border-right: 1px solid #d5aa4f;
+   border-radius: 8px 1px 1px 8px;
+   bottom: 0;
+   content: "";
+   display: inline-block;
+   left: 0;
+   position: absolute;
+   top: 0;
+}
+
+@for $i from 1 through 100 {
+   $value: ($i * 1%);
+  
+   [data-number="#{$i}"]:before {
+      width: $value;
+      
+      @if $value > 99 {
+         border-radius: 8px;
+      }
+   }
+}
